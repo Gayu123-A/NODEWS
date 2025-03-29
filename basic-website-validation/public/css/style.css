@@ -1,0 +1,76 @@
+/* Background Styling and Page Animation */
+body {
+    background: url('/images/body-bkg-img.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden; /* Prevents entire page from scrolling */
+    padding-bottom: 50px; /* Prevents footer overlap */
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Login & Register Form Animation */
+.login-box, .register-box{
+    transform: translateY(-30px);
+    opacity: 0;
+    animation: slideDownFadeIn 1s forwards 1s;
+}
+
+/* Blur Effect */
+.bg-blur{
+    backdrop-filter: blur(10px); 
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Fields */
+.form-control{
+    border-radius: 20px;
+}
+
+/* Input Field Focus Effect */
+.form-control:focus {
+    box-shadow: 0 0 10px rgba(30, 60, 114, 0.5);
+    border-color:#1e3c72;
+}
+
+/* Password Strength Indicator */
+#password-strength {
+    font-size: 14px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Strength Color Transitions */
+.weak { color: #e32424 !important; }
+.medium { color: #e99c0d !important; }
+.strong { color: #31e331 !important; }
+
+/* Input Group Icon */
+.input-group-text {
+    background-color: #1e3c72;
+    color: white;
+    border-radius: 20px 0 0 20px;
+}
+
+.toggle-icon{
+    background: none;
+    border-radius: 0 20px 20px 0;
+}
+
+/* Login Button Style and Hover Effect */
+.btn-custom{
+    border-radius: 20px;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: white;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-custom:hover{
+    background: linear-gradient(to right, #2a5298, #1e3c72);
+    color: white;
+    transform: scale(1.05);
+}
