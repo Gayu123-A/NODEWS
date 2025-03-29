@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark nav-bg">
+    <div class="container">
+        <a class="navbar-brand" href="/">My App</a>
+        
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myappMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="myappMenu">
+                <ul class="navbar-nav ms-auto">
+                    <% if(activePage === 'login' || activePage === 'register'){ %>
+                        <li class="nav-item">
+                            <a href="/" class="nav-link <%= activePage === 'login' ? 'active': '' %>">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/register" class="nav-link <%= activePage === 'register' ? 'active': '' %>">Register</a>
+                        </li>
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a href="/logout" class="nav-link">Logout</a>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+    </div>
+</nav>
