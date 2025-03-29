@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input Form</title>
+</head>
+<body>
+    <h2>Submit your details</h2>
+    <form action="/submit" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+        <br><br>
+
+        <label for="phone">Phone Number:</label>
+        <select name="countryCode" id="countryCode" required>
+            <option value="+1">+1 (USA)</option>
+            <option value="+91">+91 (India)</option>
+            <option value="+1">+44 (UK)</option>
+            <option value="+1">+61 (Australia)</option>
+            <option value="+1">+81 (Japan)</option>
+        </select>
+        <input type="text" name="phone" id="phone" required>
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
