@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input Form</title>
+    <style>
+        /* Global Styles */
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* Page Layout */
+        body{
+            background-color: #f4f4f4;
+            padding: 20px;
+            font-size: 15px;
+            color: #2f4f4f;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Heading and Form Styling */
+        h2{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        form{
+            background-color: #fff;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 10px 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        /* Labels and Inputs */
+        label{
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea{
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font: inherit;
+            outline: none;  /*  Removes the border color on focus */
+            transition: border-color 0.3s ease-in-out;
+            color: #2f444fea;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #a2b7cc;
+            box-shadow: 0 0 5px rgba(193, 203, 212, 0.3);
+            color: #2f444fea;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 10px;
+            align-items: baseline;
+            justify-content: center;
+            height: 40px;
+        }
+
+        /* Reduce the size of the radio button */
+        .radio-group input[type="radio"] {
+            appearance: none; /* Removes default styling */
+            width: 12px; /* Smaller width */
+            height: 12px; /* Smaller height */
+            padding: 7px;
+            border: 1.5px solid #aaa; /* Thinner border */
+            border-radius: 50%;
+            position: relative;
+            outline: none;
+            background-color: #f0f0f0; /* Light grey background */
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+
+        /* Style the checked radio button */
+        .radio-group input[type="radio"]:checked {
+            background-color: lightgrey; /* Change selection color */
+            border-color: #888; /* Change border color */
+        }
+
+        /* Create a smaller dot inside the radio button when selected */
+        .radio-group input[type="radio"]::before {
+            content: "";
+            position: absolute;
+            width: 5px; /* Smaller dot */
+            height: 5px;
+            background-color: #555; /* Dark grey dot */
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        /* Show the dot inside the selected radio button */
+        .radio-group input[type="radio"]:checked::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Reduce the font size of labels */
+        .radio-group label {
+            font-size: 14px; /* Smaller font size */
+            color: #2f4f4f;
+            font-weight: unset;
+        }
+
+        .phone-group{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .countrycode-select{
+            width: 120px;
+            padding: 8px 10px;
+            border-radius: 6px;
+        }
+
+        /* Styles of Error Messages */
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .error-icon {
+            color: red;
+        }
+
+        /* Invalid input: Highlight in red */
+        .invalid-input {
+            border: 1px solid rgb(194, 75, 75) !important;
+            background-color: #ede5e5; /* Light red background */
+        }
+
+        /* Error messages fade-in smoothly */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Keyframes for smooth fade-in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Submit Button */
+        button {
+            background: #007bff;
+            color: white;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>User Input Form</h2>
+        <p>Kindly provide your details.</p>
+    </div>
+    <!-- User Input Form -->
+    <form id="userForm" action="/submit" method="POST" onsubmit="validateForm(event)">
+        <!-- Name Field -->
+        <label for="name">Name :</label>
+        <input type="text" name="name" id="name" value="<%= typeof data !== 'undefined' ? data.name : '' %>">
+        <% if(errors.name){ %>
+            <div class="error" id="name-error"><span class="error-icon">⚠</span> <%= errors.name %></div>
+        <% }else{ %>
+            <div class="error" id="name-error"></div>
+        <% } %>
+
+        <!-- Email Field -->
+        <label for="email">Email :</label>
+        <input type="email" name="email" id="email" value="<%= typeof data !== 'undefined' ? data.email : '' %>">
+        <% if(errors.email){ %>
+            <div class="error" id="email-error"><span class="error-icon">⚠</span> <%= errors.email %></div>
+        <% }else{ %>
+            <div class="error" id="email-error"></div>
+        <% } %>
+
+        <!-- Password and confirm Password Fields -->
+        <label for="password">Password :</label>
+        <input type="password" name="password" id="password" value="<%= typeof data !== 'undefined' ? data.password : '' %>">
+        <% if(errors.password){ %>
+            <div class="error" id="password-error"><span class="error-icon">⚠</span> <%= errors.password %></div>
+        <% }else{ %>
+            <div class="error" id="password-error"></div>
+        <% } %>
+
+        <label for="confirmPassword">Confirm Password :</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" value="<%= typeof data !== 'undefined' ? data.confirmPassword : '' %>">
+        <% if(errors.confirmPassword){ %>
+            <div class="error" id="confirmPassword-error"><span class="error-icon">⚠</span> <%= errors.confirmPassword %></div>
+        <% }else{ %>
+            <div class="error" id="confirmPassword-error"></div>
+        <% } %>
+
+        <!-- Age Field -->
+        <label for="age">Age :</label>
+        <input type="text" name="age" id="age" value="<%= typeof data !== 'undefined' ? data.age : '' %>">
+        <% if(errors.age){ %>
+            <div class="error" id="age-error"><span class="error-icon">⚠</span> <%= errors.age %></div>
+        <% }else{ %>
+            <div class="error" id="age-error"></div>
+        <% } %>
+
+        <!-- Gender Field -->
+        <label for="gender">Gender :</label>
+        <div class="radio-group">
+            <input type="radio" id="gender" name="gender" value="Male" <%= typeof data !== 'undefined' && data.gender === 'Male' ? 'checked' : '' %>><label for="male">Male</label>
+            <input type="radio" id="gender" name="gender" value="Female" <%= typeof data !== 'undefined' && data.gender === 'Female' ? 'checked' : '' %>><label for="female">Female</label>
+        </div>
+        <% if (errors.gender) { %>
+            <div class="error" id="gender-error"><span class="error-icon">⚠</span> <%= errors.gender %></div>
+        <% }else{ %>
+            <div class="error" id="gender-error"></div>
+        <% } %>
+
+        <!-- Phone Field with country code -->
+        <label for="phone">Phone Number :</label>
+        <div class="phone-group">
+            <select name="countryCode" id="countryCode" class="countrycode-select" >
+                <option value="+1" <%= typeof data !== 'undefined' && data.countryCode === '+1' ? 'selected' : '' %>> +1 </option>
+                <option value="+91" <%= typeof data !== 'undefined' && data.countryCode === '+91' ? 'selected' : '' %>> +91 </option>
+                <option value="+44" <%= typeof data !== 'undefined' && data.countryCode === '+44' ? 'selected' : '' %>> +44 </option>
+                <option value="+61" <%= typeof data !== 'undefined' && data.countryCode === '+61' ? 'selected' : '' %>> +61 </option>
+                <option value="+81" <%= typeof data !== 'undefined' && data.countryCode === '+81' ? 'selected' : '' %>> +81 </option>
+            </select>
+            <input type="text" name="phone" id="phone" value="<%= typeof data !== 'undefined' ? data.phone : '' %>">    
+        </div>
+        <% if (errors.phone) { %>
+            <div class="error" id="phone-error"><span class="error-icon">⚠</span> <%= errors.phone %></div>
+        <% }else{ %>
+            <div class="error" id="phone-error"></div>
+        <% } %>
+
+        <!-- Address Field -->
+        <label for="address">Address :</label>
+        <textarea name="address" id="address"><%= typeof data !== 'undefined' ? data.address : '' %></textarea>
+        <% if (errors.address) { %>
+            <div class="error" id="address-error"><span class="error-icon">⚠</span> <%= errors.address %></div>
+        <% }else{ %>
+            <div class="error" id="address-error"></div>
+        <% } %>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        /* Script for client-side validation */
+
+        let isValid = true; // Flag used to confirm whether the form passes the validation checks or not.
+
+        // Patterns used for validation
+        const namePattern = /^[A-Za-z\s]*$/; // Allows only letters and spaces
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Basic email pattern
+        const phonePattern = /^\d+$/; // Only digits allowed
+        const countryPhonePatterns = {
+            "+1": /^\d{10}$/, // USA - 10 digits
+            "+91": /^\d{10}$/, // India - 10 digits
+            "+44": /^\d{10}$/, // UK - 10 digits
+            "+61": /^\d{9}$/,  // Australia - 9 digits
+            "+81": /^\d{10}$/, // Japan - 10 digits
+        };
+
+        // Function to validate the user inputs on clicking the "Submit" button.
+        function validateForm(e){
+            e.preventDefault(); // Prevents form submission
+
+            // Input values
+            let name = document.getElementById('name').value.trim();
+            let email = document.getElementById('email').value.trim();
+            let password = document.getElementById('password').value.trim();
+            let confirmPassword = document.getElementById('confirmPassword').value.trim();
+            let age = document.getElementById('age').value.trim(); 
+            let countryCode = document.getElementById('countryCode').value.trim();
+            let phone = document.getElementById('phone').value.trim();
+            let address = document.getElementById('address').value.trim();
+
+            // Name Validation
+            validateName(name);
+
+            // Email Validation
+            validateEmail(email);
+
+            // Password Validation
+            validatePassword(password, confirmPassword);
+            
+            // Age Validation
+            validateAge(age);
+
+            // Gender Validation
+            let genderChecked = document.querySelectorAll('input[name="gender"]:checked').length > 0;
+            validateGender(genderChecked);
+
+            // Country code - phone validation
+            validatePhone(phone, countryCode);
+            
+            // Address Validation
+            validateAddress(address);
+            
+            if (isValid){
+                // clear previous error messages
+                document.querySelectorAll('.error').forEach(el => el.innerHTML = '');
+                document.getElementById("userForm").submit();   // The form gets submitted to the server-side route "/submit"
+            }
+            
+        }
+
+        // Input event (validation occurs while typing) to validate Name
+        document.getElementById("name").addEventListener("input", function() {
+            let name = this.value.trim();
+            validateName(name);
+        });
+
+        // Input event (validation occurs while typing) to validate Email
+        document.getElementById("email").addEventListener("input", function() {
+            let email = this.value.trim();
+            validateEmail(email);
+        });
+
+        // Input and Blur events to validate Password and Confirm Password fields
+        document.getElementById("password").addEventListener("input", function() {
+            let password = this.value.trim();
+            let confirmPassword = document.getElementById('confirmPassword').value.trim();
+            validatePassword(password, confirmPassword);
+        });
+
+        document.getElementById("password").addEventListener("blur", function() {
+            let password = this.value.trim();
+            let confirmPassword = document.getElementById('confirmPassword').value.trim();
+            validatePassword(password, confirmPassword);
+        });
+
+        document.getElementById("confirmPassword").addEventListener("input", function() {
+            let confirmPassword = this.value.trim();
+            let password = document.getElementById('password').value.trim();
+            validatePassword(password, confirmPassword);
+        });
+
+        document.getElementById("confirmPassword").addEventListener("blur", function() {
+            let confirmPassword = this.value.trim();
+            let password = document.getElementById('password').value.trim();
+            validatePassword(password, confirmPassword);
+        });
+
+        // Input event to validate Age
+        document.getElementById("age").addEventListener("input", function() {
+            let age = this.value.trim();
+
+            // If the Age field has some value in it, please remove the already showing error message
+            if(age){
+                removeError("age");
+            }
+
+            // And, do validation again.
+            if (!age){
+                showError("age", "Age is required.");
+            } else if(isNaN(age)){
+                showError("age", "Age must contain only digits.");
+            }
+        });
+
+        // The blur event to validate the entire value(age) when the user moves out of the input field.
+        document.getElementById("age").addEventListener("blur", function() {
+            let age = this.value.trim();
+            validateAge(age);
+        });
+
+        // Input event to validate Gender
+        document.getElementById("gender").addEventListener("input", function() {
+            let genderChecked = document.querySelectorAll('input[name="gender"]:checked').length > 0;
+            validateGender(genderChecked);
+        });
+
+        // Blur event to validate Gender
+        document.getElementById("gender").addEventListener("blur", function() {
+            let genderChecked = document.querySelectorAll('input[name="gender"]:checked').length > 0;
+            validateGender(genderChecked);
+        });
+
+        // Input event to validate Phone Number and it's country code
+        document.getElementById("phone").addEventListener("input", function() {
+            let phone = this.value.trim();
+            let countryCode = document.getElementById('countryCode').value.trim();
+            validatePhone(phone, countryCode);
+        });
+
+        // Input event to validate Address
+        document.getElementById("address").addEventListener("input", function() {
+            let address = this.value.trim();
+            validateAddress(address);
+        });
+
+        // Function to check for valid name(must not contain numbers) and name is not empty
+        function validateName(name){
+            if (!name){
+                showError("name", "Name is required.");
+            } else if(!namePattern.test(name)){
+                showError("name", "Name must not contain numbers.");
+            } else {
+                removeError("name");
+            }
+        }
+
+        // Function to check for valid email(with proper format) and email is not empty
+        function validateEmail(email){
+            if (!email){
+                showError("email", "Email is required.");
+            } else if(!emailPattern.test(email)){
+                showError("email", "Enter a valid email address.");
+            } else {
+                removeError("email");
+            }
+        }
+
+        // Function to check for valid Password(minimum 6 characters) & Confirm Password(must match with Password) and both should not be empty
+        function validatePassword(password, confirmPassword){
+            if (!password){
+                showError("password", "Password is required.");
+            } else if(password.length < 6){
+                showError("password", "Password must be at least 6 characters.");
+            } else {
+                removeError("password");
+            }
+
+            if(password !== confirmPassword){
+                showError("confirmPassword", "Passwords do not match.");
+            } else {
+                removeError("confirmPassword");
+            }
+        }
+
+        // Function to check for valid age(only digits, must be between 18 and 100) and age is not empty
+        function validateAge(age){
+            if (!age){
+                showError("age", "Age is required.");
+            } else if(isNaN(age)){
+                showError("age", "Age must contain only digits.");
+            } else if(parseInt(age) < 18 || parseInt(age) > 100){
+                showError("age", "Age must be between 18 and 100.");
+            } else {
+                removeError("email");
+            }
+        }
+
+        // Function to check atleast one of the gender is checked
+        function validateGender(genderChecked){
+            if (!genderChecked){ showError("gender", "Select your gender."); } else { removeError("gender"); }
+        }
+
+        // Function to check for valid Phone Number(only digits and match the selected country code) and should not be empty
+        function validatePhone(phone, countryCode){
+            if (!phone){
+                showError("phone", "Phone Number is required.");
+            } else if(!phonePattern.test(phone)){
+                showError("phone", "Phone Number must contain only digits.");
+            } else if(!countryPhonePatterns[countryCode].test(phone)){
+                showError("phone", "Phone Number does not match the selected country code.");
+            }else {
+                removeError("phone");
+            }
+        }
+
+        // Function to check for valid address(not empty)
+        function validateAddress(address){
+            if (!address){ 
+                showError("address", "Address is required."); 
+            } else { 
+                removeError("address"); 
+            }
+        }
+
+        // Function to show error messages and to highlight the input field(in red)
+        function showError(field, message) {
+            let inputField = document.getElementById(field);
+            let errorDiv = document.getElementById(field + "-error");
+
+            inputField.classList.add("invalid-input"); // Highlight the input field(in red)
+            errorDiv.innerHTML = `<span class="error-icon">⚠</span> ${message}`; // Shows the error message below the input field
+            errorDiv.classList.add("fade-in");
+            isValid = false;    // Sets the isValid to false
+        }
+
+        // Function to remove error messages and red highlight in the input field
+        function removeError(field){
+            let inputField = document.getElementById(field);
+            let errorDiv = document.getElementById(field + "-error");
+
+            inputField.classList.remove("invalid-input"); // Remove red border if valid
+            errorDiv.innerHTML = ""; // Clear error if valid
+            errorDiv.classList.remove("fade-in");
+            isValid = true; // Sets the isValid to true
+        }
+    </script>
+</body>
+</html>

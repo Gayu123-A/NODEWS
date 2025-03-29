@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+</head>
+<body>
+    <h2>User submitted his/her details successfully</h2>
+    <p><strong>Name:</strong> <%= data.name %></p>
+    <p><strong>Email:</strong> <%= data.email %></p>
+    <p><strong>Password:</strong> <span style="filter: blur(8px);"><%= data.password %></span></p>
+    <p><strong>Age:</strong> <%= data.age %></p>
+    <p><strong>Gender:</strong> <%= data.gender %></p>
+    <p><strong>Phone Number:</strong> <%= data.countryCode %><%= data.phone %></p>
+    <p><strong>Address:</strong> <%= data.address %></p>
+    <a href="/">Back to Home</a>
+</body>
+</html>
