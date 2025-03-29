@@ -1,0 +1,128 @@
+2025-03-27 12:48:22 [INFO]: GET / - ::ffff:127.0.0.1
+2025-03-27 12:48:22 [INFO]: Homepage accessed
+2025-03-27 12:48:22 [INFO]: GET /css/styles.css - ::ffff:127.0.0.1
+2025-03-27 12:48:22 [INFO]: GET /images/google-icon.jpg - ::ffff:127.0.0.1
+2025-03-27 12:48:24 [INFO]: GET /auth/google - ::ffff:127.0.0.1
+2025-03-27 12:49:01 [INFO]: GET /auth/google/callback?code=4%2F0AQSTgQFZ0WFmbhYCz_dBiX_3ThDN_67fl_WguGVXEaeqs9Z31u3_PanEBeMU7-iSgeNSmw&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=consent - ::1
+2025-03-27 12:49:01 [INFO]: User logged in: Gayathri Test
+2025-03-27 12:49:01 [INFO]: GET /profile - ::1
+2025-03-27 12:49:01 [INFO]: GET /css/styles.css - ::1
+2025-03-27 12:49:01 [INFO]: GET /js/open_weather.js - ::1
+2025-03-27 12:49:05 [INFO]: GET /css/styles.css - ::1
+2025-03-27 12:49:12 [INFO]: GET /weather?lat=12.9794048&lon=80.2095104 - ::1
+2025-03-27 12:49:12 [INFO]: POST /api/log - ::1
+2025-03-27 12:49:13 [INFO]: POST /api/log - ::1
+2025-03-27 12:50:05 [INFO]: POST /api/log - ::1
+2025-03-27 12:50:05 [INFO]: GET /weather?city=Delhi - ::1
+2025-03-27 12:50:05 [INFO]: POST /api/log - ::1
+2025-03-27 12:50:13 [INFO]: POST /api/log - ::1
+2025-03-27 12:50:13 [INFO]: GET /weather?city=Ooty - ::1
+2025-03-27 12:50:13 [INFO]: POST /api/log - ::1
+2025-03-27 12:50:23 [INFO]: GET /logout - ::1
+2025-03-27 12:50:23 [INFO]: User logged out: Gayathri Test
+2025-03-27 12:50:23 [INFO]: GET / - ::1
+2025-03-27 12:50:23 [INFO]: Homepage accessed
+2025-03-27 12:50:23 [INFO]: GET /css/styles.css - ::1
+2025-03-27 12:50:23 [INFO]: GET /images/google-icon.jpg - ::1
+2025-03-27 12:51:41 [INFO]: GET /auth/google - ::1
+2025-03-27 12:51:41 [INFO]: GET /auth/google/callback?code=4%2F0AQSTgQF2OdvtkfwCs56x0SR7afFkNb4lJa8617iT7CD7KBAhL3D38CPX4nVX1-Ww7pOgJQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=none - ::1
+2025-03-27 12:51:41 [INFO]: User logged in: Gayathri Test
+2025-03-27 12:51:41 [INFO]: GET /profile - ::1
+2025-03-27 12:51:41 [INFO]: GET /css/styles.css - ::1
+2025-03-27 12:51:41 [INFO]: GET /js/open_weather.js - ::1
+2025-03-27 12:51:44 [INFO]: POST /api/log - ::1
+2025-03-27 12:51:44 [INFO]: GET /weather?lat=12.9794048&lon=80.2095104 - ::1
+2025-03-27 12:51:44 [INFO]: POST /api/log - ::1
+2025-03-27 13:34:21 [INFO]: GET /logout - ::1
+2025-03-27 13:34:25 [INFO]: GET /logout - ::1
+2025-03-27 13:35:10 [INFO]: GET / - ::ffff:127.0.0.1
+2025-03-27 13:35:10 [INFO]: Homepage accessed
+2025-03-27 13:35:10 [INFO]: GET /css/styles.css - ::ffff:127.0.0.1
+2025-03-27 13:35:10 [INFO]: GET /images/google-icon.jpg - ::ffff:127.0.0.1
+2025-03-27 13:35:15 [INFO]: GET /auth/google - ::ffff:127.0.0.1
+2025-03-27 13:35:15 [INFO]: GET /auth/google/callback?code=4%2F0AQSTgQGjywI4UHnxFnGYaxun0IlHwd1xrJSBp5KP28D6os2k9Qkdriq4PisvaLULQUisqQ&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=none - ::1
+2025-03-27 13:35:15 [INFO]: User logged in: Gayathri Test
+2025-03-27 13:35:15 [INFO]: GET /profile - ::1
+2025-03-27 13:35:15 [INFO]: GET /css/styles.css - ::1
+2025-03-27 13:35:15 [INFO]: GET /js/open_weather.js - ::1
+2025-03-27 13:35:30 [INFO]: POST /api/log - ::1
+2025-03-27 13:35:30 [INFO]: GET /weather?lat=12.9866294&lon=80.1100638 - ::1
+2025-03-27 13:35:30 [INFO]: Client Event: Fetching weather for current city: 12.9866294 - 80.1100638
+2025-03-27 13:35:31 [INFO]: POST /api/log - ::1
+2025-03-27 13:35:31 [INFO]: Client Event: Weather data received for Nandambakkam
+2025-03-27 13:36:14 [INFO]: GET /css/styles.css - ::1
+2025-03-27 13:36:33 [INFO]: POST /api/log - ::1
+2025-03-27 13:36:33 [INFO]: Client Event: Fetching weather for city: OOTY
+2025-03-27 13:36:33 [INFO]: GET /weather?city=OOTY - ::1
+2025-03-27 13:36:33 [INFO]: POST /api/log - ::1
+2025-03-27 13:36:33 [INFO]: Client Event: Weather data received for OOTY
+2025-03-27 13:36:44 [INFO]: GET /logout - ::1
+2025-03-27 13:36:44 [INFO]: User logged out: Gayathri Test
+2025-03-27 13:36:44 [INFO]: GET / - ::1
+2025-03-27 13:36:44 [INFO]: Homepage accessed
+2025-03-27 13:36:44 [INFO]: GET /css/styles.css - ::1
+2025-03-27 13:36:44 [INFO]: GET /images/google-icon.jpg - ::1
+2025-03-27 20:09:04 [INFO]: GET / - ::ffff:127.0.0.1
+2025-03-27 20:09:04 [INFO]: Homepage accessed
+2025-03-27 20:09:05 [INFO]: GET /css/styles.css - ::ffff:127.0.0.1
+2025-03-27 20:09:05 [INFO]: GET /images/google-icon.jpg - ::ffff:127.0.0.1
+2025-03-27 20:09:05 [INFO]: GET /favicon.ico - ::ffff:127.0.0.1
+2025-03-27 20:09:13 [INFO]: GET /auth/google - ::ffff:127.0.0.1
+2025-03-27 20:09:51 [INFO]: GET /auth/google/callback?code=4%2F0AQSTgQEq0qL_dq93QJHwFskYjxHh_us8YHTLTCFm-csA9z5cEnUevN8J1yl_xGi508Hpcg&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=consent - ::1
+2025-03-27 20:09:52 [INFO]: User logged in: Gayathri Test
+2025-03-27 20:09:52 [INFO]: GET /profile - ::1
+2025-03-27 20:09:52 [INFO]: GET /css/styles.css - ::1
+2025-03-27 20:09:52 [INFO]: GET /js/open_weather.js - ::1
+2025-03-27 20:09:53 [INFO]: GET /favicon.ico - ::1
+2025-03-27 20:56:59 [INFO]: GET /weather?city=London - ::1
+2025-03-27 20:56:59 [INFO]: Cache miss: Fetching weather from API for city:London
+2025-03-27 20:57:12 [INFO]: GET /weather?city=London - ::1
+2025-03-27 20:57:12 [INFO]: Cache hit: Returning cached weather for city:London
+2025-03-27 21:07:02 [INFO]: GET / - ::ffff:127.0.0.1
+2025-03-27 21:07:02 [INFO]: Homepage accessed
+2025-03-27 21:07:03 [INFO]: GET /css/styles.css - ::ffff:127.0.0.1
+2025-03-27 21:07:03 [INFO]: GET /images/google-icon.jpg - ::ffff:127.0.0.1
+2025-03-27 21:10:18 [INFO]: GET /auth/google - ::ffff:127.0.0.1
+2025-03-27 21:10:38 [INFO]: GET /auth/google/callback?code=4%2F0AQSTgQFS1uP39zwRCh68aE4aBm_lARrFA5zWmlRTZ_FmNULVGV1lbwADHqDDvAvPgYoL3w&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=consent - ::1
+2025-03-27 21:10:39 [INFO]: User logged in: Gayathri Test
+2025-03-27 21:10:39 [INFO]: GET /profile - ::1
+2025-03-27 21:10:39 [INFO]: GET /css/styles.css - ::1
+2025-03-27 21:10:39 [INFO]: GET /js/open_weather.js - ::1
+2025-03-27 21:12:49 [INFO]: GET /weather?city=London - ::1
+2025-03-27 21:12:50 [INFO]: Cache miss: Fetching weather from API for city:London
+2025-03-27 21:13:07 [INFO]: GET /weather?city=London - ::1
+2025-03-27 21:13:07 [INFO]: Cache hit: Returning cached weather for city:London
+2025-03-27 21:13:23 [INFO]: GET /logout - ::1
+2025-03-27 21:13:23 [INFO]: User logged out: Gayathri Test
+2025-03-27 21:13:23 [INFO]: GET / - ::1
+2025-03-27 21:13:23 [INFO]: Homepage accessed
+2025-03-27 21:13:23 [INFO]: GET /css/styles.css - ::1
+2025-03-27 21:13:24 [INFO]: GET /images/google-icon.jpg - ::1
+2025-03-27 23:15:06 [INFO]: GET / - ::ffff:127.0.0.1
+2025-03-27 23:15:06 [INFO]: Homepage accessed
+2025-03-27 23:15:07 [INFO]: GET /css/styles.css - ::ffff:127.0.0.1
+2025-03-27 23:15:07 [INFO]: GET /images/google-icon.jpg - ::ffff:127.0.0.1
+2025-03-27 23:15:07 [INFO]: GET /favicon.ico - ::ffff:127.0.0.1
+2025-03-27 23:22:16 [INFO]: GET /auth/google - ::ffff:127.0.0.1
+2025-03-27 23:22:48 [INFO]: GET /auth/google/callback?code=4%2F0AQSTgQEN6jOuTm6sGv6Wwwv8WwMizCYeEMlDlz8uY_ztVMxuvq7cobGS2U47PzyKR6033g&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=consent - ::1
+2025-03-27 23:22:49 [INFO]: User logged in: Gayathri Test
+2025-03-27 23:22:49 [INFO]: GET /profile - ::1
+2025-03-27 23:22:49 [INFO]: GET /css/styles.css - ::1
+2025-03-27 23:22:49 [INFO]: GET /js/open_weather.js - ::1
+2025-03-27 23:22:49 [INFO]: GET /favicon.ico - ::1
+2025-03-27 23:23:25 [INFO]: POST /api/log - ::1
+2025-03-27 23:23:25 [INFO]: Client Event: Fetching weather for current city: 12.9368064 - 80.11776
+2025-03-27 23:23:25 [INFO]: GET /weather?lat=12.9368064&lon=80.11776 - ::1
+2025-03-27 23:23:26 [INFO]: Cache miss: Fetching weather from API for lat:12.9368064-lon:80.11776
+2025-03-27 23:23:26 [INFO]: POST /api/log - ::1
+2025-03-27 23:23:26 [INFO]: Client Event: Weather data received for Vengavasal
+2025-03-27 23:24:39 [INFO]: GET /weather?city=London - ::1
+2025-03-27 23:24:39 [INFO]: Cache miss: Fetching weather from API for city:London
+2025-03-27 23:25:05 [INFO]: GET /weather?city=London - ::1
+2025-03-27 23:25:05 [INFO]: Cache hit: Returning cached weather for city:London
+2025-03-27 23:40:55 [INFO]: GET /logout - ::1
+2025-03-27 23:40:55 [INFO]: User logged out: Gayathri Test
+2025-03-27 23:40:55 [INFO]: GET / - ::1
+2025-03-27 23:40:55 [INFO]: Homepage accessed
+2025-03-27 23:40:55 [INFO]: GET /css/styles.css - ::1
+2025-03-27 23:40:55 [INFO]: GET /images/google-icon.jpg - ::1
